@@ -14,6 +14,7 @@ function TodoForm(props) {
 
     function addHandler(event){
         dispatch(AddTodo(todoText));
+        setText(event.target = '');
     }
     
 

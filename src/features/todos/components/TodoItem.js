@@ -15,6 +15,7 @@ function TodoItem(props){
 
     function handleDelete(event){
         dispatch(DeleteTodo(props.itemId));
+        
     }
 
     return (

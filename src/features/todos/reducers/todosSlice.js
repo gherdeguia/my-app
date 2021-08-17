@@ -13,7 +13,6 @@ const todosSlice = createSlice({
     initialState : initialState,
     reducers : {
         AddTodo(state, action) {
-            // console.log("Add : ", action)
             todosAdapter.addOne(state, {
                 id : uuid(),
                 text: action.payload,
