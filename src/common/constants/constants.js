@@ -1,19 +1,12 @@
 export const initialTodoList = 
-[
+
     {
-        // id: "cc53dc26-61b0-406b-99dd-b8825dd2ceec",
-        id: 1,
+        id: "cc53dc26-61b0-406b-99dd-b8825dd2ceec",
         text: "todo example",
-        done: false
-    },
-    {
-        // id: "cc53dc26-61b0-406b-99dd-b8825dd2ceec",
-        id: 2,
-        text: "todo example 2",
         done: false
     }
     
-]
+
 
 
 // ids:["1","2"],
