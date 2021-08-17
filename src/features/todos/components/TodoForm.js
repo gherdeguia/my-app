@@ -10,12 +10,10 @@ function TodoForm(props) {
 
     function changeHandler(event){
         setText(event.target.value);
-        // console.log(event.target.value);
     }
 
     function addHandler(event){
         dispatch(AddTodo(todoText));
-        // console.log(todoText);
     }
     
 

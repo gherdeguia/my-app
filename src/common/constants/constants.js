@@ -5,20 +5,3 @@ export const initialTodoList =
         text: "todo example",
         done: false
     }
-    
-
-
-
-// ids:["1","2"],
-//     entities: {
-//         1: {
-//             id:"1",
-//             text: "texting code something something",
-//             done: false
-//         },
-//         2: {
-//             id:"2",
-//             text: "second testing testing",
-//             done: true
-//         },
-//     },
