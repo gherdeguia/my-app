@@ -2,7 +2,7 @@ import React from "react";
 import { selectTodoById, ToggleTodo, DeleteTodo } from "../reducers/todosSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/TodoItem.css";
-import { InputGroup, Button, ListGroup} from "react-bootstrap";
+import { InputGroup, Button, ListGroup, ButtonGroup } from "react-bootstrap";
 
 function TodoItem(props){
     const todo = useSelector((state) => selectTodoById(state, props.itemId));
@@ -19,13 +19,12 @@ function TodoItem(props){
     }
 
     return (
-        <ListGroup>
+        <ListGroup variant="flush">
             <ListGroup.Item>
-                <InputGroup>
-                    {/* <div className={`item-selected-${todoStatus}`} onClick={handleClick}>{todo.text}</div> */}
-                    <InputGroup.Text className={`item-selected-${todoStatus}`} onClick={handleClick}>{todo.text}</InputGroup.Text>
-                    <Button variant="dark" id="button-addon2" onClick={handleDelete} value={todo.id}>X</Button>{' '}
-                </InputGroup>
+                <ButtonGroup >
+                    <InputGroup.Text className={`item-selected-${todoStatus}`} onClick={handleClick}>{todo.text}</InputGroup.Text>{' '}
+                    <Button variant="dark" onClick={handleDelete} value={todo.id}>X</Button>{' '}
+                </ButtonGroup >
             </ListGroup.Item>
         </ListGroup>
                 
