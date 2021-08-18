@@ -3,7 +3,7 @@ import { selectTodoById, ToggleTodo, DeleteTodo } from "../reducers/todosSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/TodoItem.css";
 import { InputGroup, Button, ListGroup, ButtonGroup } from "react-bootstrap";
-import { updateTodoData } from "../../axios/todos";
+import { updateTodoData, deleteTodoData } from "../../axios/todos";
 
 function TodoItem(props){
     
@@ -18,14 +18,17 @@ function TodoItem(props){
 
     function handleClick(){
         updateTodoData(todo.id, {done: !todo.done}).then( (response) => {
-            // console.log(response.data);
             dispatch(ToggleTodo({ props, updateTodoData: response.data} ));
         });
     }
 
 
     function handleDelete(event){
-        dispatch(DeleteTodo(props.itemId));
+        // dispatch(DeleteTodo(props.itemId));
+
+        deleteTodoData(todo.id).then( (response) => {
+            dispatch(DeleteTodo(props.itemId));
+        });
     }
 
     

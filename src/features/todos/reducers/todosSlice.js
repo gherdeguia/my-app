@@ -25,9 +25,9 @@ const todosSlice = createSlice({
                 changes: action.payload.updateTodoData
             });
             return state;
-            // console.log(state);
         },
         DeleteTodo(state, action){
+            // console.log(action.payload);
             todosAdapter.removeOne(state, action.payload);
         },
         AddTodos(state,action){
