@@ -8,9 +8,12 @@ export const addTodoData = (text) => {
     return api.post("/todos", {text})
 }
 
-
 export const updateTodoData = (id, todoStatus) => {
     return api.put(`/todos/${id}`, todoStatus)
+}
+
+export const deleteTodoData = (id, todoStatus) => {
+    return api.delete(`/todos/${id}`, todoStatus)
 }
 
 // export default api;

@@ -5,3 +5,20 @@
 .item-selected-{
     text-decoration: none;
 }
+
+.btn-close{
+    display:none;
+}
+
+.todoItem{
+    margin-bottom: 20px;
+}
+
+.card{
+    box-shadow: 1px 1px 1px 1px dimgrey;
+}
+
+.doneItems{
+    background-color: #ffe085;
+}
+

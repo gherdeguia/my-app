@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -39,4 +39,8 @@
 
 .appcontainer{
   text-align: left;
+}
+
+body{
+  background-color: beige !important;
 }

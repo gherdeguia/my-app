@@ -1,7 +1,6 @@
 export const initialTodoList = 
-
     {
-        id: "cc53dc26-61b0-406b-99dd-b8825dd2ceec",
-        text: "todo example",
+        id: "031010",
+        text: "Don't Forget 3.OCT.10",
         done: false
     }

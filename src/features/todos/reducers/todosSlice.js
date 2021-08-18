@@ -44,8 +44,10 @@ export const {
     selectAll : selectAllTodos,
 } = todosAdapter.getSelectors((state) => state.todoList);
 
-export const selectDoneList = createSelector([selectAllTodos], (todos) =>
- todos.filter((todo) => todo.done)
-);
+export const selectDoneList = createSelector([selectAllTodos], (todos) => {
+    return todos.filter((todo) => todo.done)
+});
+
+export const selectDoneItems = createSelector([selectAllTodos], (todos) => todos.filter((todo) => todo.done));
 
 export default todosSlice.reducer;

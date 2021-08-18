@@ -2,8 +2,9 @@ import React from "react";
 import { selectTodoById, ToggleTodo, DeleteTodo } from "../reducers/todosSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/TodoItem.css";
-import { InputGroup, Button, ListGroup, ButtonGroup } from "react-bootstrap";
+import { Button, Toast } from "react-bootstrap";
 import { updateTodoData, deleteTodoData } from "../../axios/todos";
+import { BsLayoutTextSidebarReverse } from "react-icons/bs";
 
 function TodoItem(props){
     
@@ -12,36 +13,29 @@ function TodoItem(props){
     const todoStatus = todo.done ? "true" : "";
     const dispatch = useDispatch();
 
-    // function handleClick(){
-    //     dispatch(ToggleTodo(props.itemId));
-    // }
-
     function handleClick(){
         updateTodoData(todo.id, {done: !todo.done}).then( (response) => {
             dispatch(ToggleTodo({ props, updateTodoData: response.data} ));
         });
     }
 
-
     function handleDelete(event){
-        // dispatch(DeleteTodo(props.itemId));
-
         deleteTodoData(todo.id).then( (response) => {
             dispatch(DeleteTodo(props.itemId));
         });
     }
 
-    
-
     return (
-        <ListGroup variant="flush">
-            <ListGroup.Item>
-                <ButtonGroup > {/* wrapper  */}
-                    <InputGroup.Text className={`item-selected-${todoStatus}`} onClick={handleClick}>{todo.text}</InputGroup.Text>{' '}
-                    <Button variant="dark" onClick={handleDelete} value={todo.id}>X</Button>{' '}
-                </ButtonGroup >
-            </ListGroup.Item>
-        </ListGroup>
+
+        <Toast className="todoItem" bg="warning" style={{ width: '100%' }}>
+            <Toast.Header>
+                <BsLayoutTextSidebarReverse />&nbsp;
+                <strong className={`me-auto item-selected-${todoStatus}`}>Entry No. {todo.id}</strong>
+                <small>{todo.createdAt}&nbsp;</small>
+                <Button variant="outline-secondary" size="sm" onClick={handleDelete} value={todo.id}>&times;</Button>
+            </Toast.Header>
+            <Toast.Body className={`item-selected-${todoStatus}`} onClick={handleClick}>{todo.text}</Toast.Body>
+        </Toast>
                 
     );
 }
