@@ -16,16 +16,16 @@ const todosSlice = createSlice({
             todosAdapter.addOne(state, action.payload);
         },
         ToggleTodo(state, action) {
-            const todo = state.entities[action.payload];
-            // console.log(todo)
-            //todo.done = !todo.done;
+            // const todo = state.entities[action.payload];
+            // todo.done = !todo.done;
             
             //other logic that can be used
             todosAdapter.updateOne(state, {
-                id : action.payload.id,
-                changes: action.payload.updateTodo
+                id : action.payload.props.itemId,
+                changes: action.payload.updateTodoData
             });
             return state;
+            // console.log(state);
         },
         DeleteTodo(state, action){
             todosAdapter.removeOne(state, action.payload);
