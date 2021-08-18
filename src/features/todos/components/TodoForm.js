@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import "../styles/TodoForm.css"
-import { AddTodo} from "../reducers/todosSlice";
+import { AddTodo } from "../reducers/todosSlice";
+import { addTodoData } from "../../axios/todos";
+
 
 function TodoForm(props) {
 
@@ -13,7 +15,9 @@ function TodoForm(props) {
     }
 
     function addHandler(event){
-        dispatch(AddTodo(todoText));
+        addTodoData(todoText).then( (response) => {
+            dispatch(AddTodo(response.data));
+        });
         setText(event.target = '');
     }
     
