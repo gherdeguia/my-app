@@ -36,11 +36,10 @@ function TodoItem(props){
     }
 
     function handleUpdate(event){
-        console.log(todoText ? todoText : todo.text);
-        
-        // updateTodoData(todo.id,todo).then( (response) => {
-        //     dispatch(ToggleTodo({ props, updateTodoData: response.data} ));
-        // });
+        // console.log(todoText ? todoText : todo.text);
+        updateTodoData(todo.id,{ text: todoText ? todoText : todo.text }).then( (response) => {
+            dispatch(ToggleTodo({ props, updateTodoData: response.data} ));
+        });
     }
 
     return (
