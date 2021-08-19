@@ -27,14 +27,14 @@ function TodoItem(props){
 
     return (
 
-        <Toast className="todoItem" bg="warning" style={{ width: '100%' }}>
+        <Toast className="todoItem animate__animated animate__fadeInUp " bg="warning" style={{ width: '100%' }}>
             <Toast.Header>
                 <BsLayoutTextSidebarReverse />&nbsp;
                 <strong className={`me-auto item-selected-${todoStatus}`}>Entry No. {todo.id}</strong>
                 <small>{todo.createdAt}&nbsp;</small>
                 <Button variant="outline-secondary" size="sm" onClick={handleDelete} value={todo.id}>&times;</Button>
             </Toast.Header>
-            <Toast.Body className={`item-selected-${todoStatus}`} onClick={handleClick}>{todo.text}</Toast.Body>
+            <Toast.Body className={`item-selected-${todoStatus}` } onClick={handleClick}>{todo.text}</Toast.Body>
         </Toast>
                 
     );

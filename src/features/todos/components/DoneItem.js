@@ -11,7 +11,7 @@ function TodoneItem(props){
     // console.log(todone);
     return (
 
-        <Card className="doneItems" variant="dark" style={{ width: '25rem', display: 'inline-grid', margin: '10px'}}>
+        <Card className="doneItems animate__animated animate__fadeInUp" variant="dark" style={{ width: '25rem', display: 'inline-grid', margin: '10px'}}>
             <Card.Body>
                 <Card.Title>{todone.id} - {todone.text}</Card.Title>
                 <Card.Text></Card.Text>
