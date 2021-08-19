@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import "../styles/TodoItem.css";
 import { selectTodoById, ToggleTodo, DeleteTodo } from "../reducers/todosSlice";
 import { useDispatch, useSelector } from "react-redux";
-import "../styles/TodoItem.css";
 import { Button, Toast, Modal, FormControl } from "react-bootstrap";
 import { updateTodoData, deleteTodoData } from "../../axios/todos";
 import { BsLayoutTextSidebarReverse, BsPencilSquare, BsXCircleFill } from "react-icons/bs";
@@ -18,11 +18,7 @@ function TodoItem(props){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    function handleClick(){
-        updateTodoData(todo.id, {text: todo.text, done: !todo.done}).then( (response) => {
-            dispatch(ToggleTodo({ props, updateTodoData: response.data} ));
-        });
-    }
+    
 
     function handleDelete(event){
         deleteTodoData(todo.id).then( (response) => {
@@ -33,6 +29,12 @@ function TodoItem(props){
     function changeHandler(event){
         setText(event.target.value);
         // console.log(event.target.value);
+    }
+
+    function handleClick(){
+        updateTodoData(todo.id, {text: todo.text, done: !todo.done}).then( (response) => {
+            dispatch(ToggleTodo({ props, updateTodoData: response.data} ));
+        });
     }
 
     function handleUpdate(event){
@@ -63,16 +65,15 @@ function TodoItem(props){
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
-                <Modal.Header closeButton>
-                    <Modal.Title>EDIT</Modal.Title>
+                <Modal.Header closeButton className="todoItem">
+                    <Modal.Title><BsPencilSquare/>&nbsp;EDIT</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p>THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG</p>
                     <FormControl as="textarea" value={todoText} onChange={changeHandler}/>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={handleUpdate} value={todo.id}>Save</Button>
-                    <Button onClick={handleClose}>Close</Button>
+                    <Button onClick={handleUpdate} value={todo.id}>Save</Button>{' '}
+                    <Button variant="outline-secondary" onClick={handleClose}>Close</Button>{' '}
                 </Modal.Footer>
             </Modal>
 

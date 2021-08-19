@@ -5,7 +5,7 @@ import { getTodoData } from "../../axios/todos";
 import { useDispatch } from "react-redux";
 import { selectDoneList, selectTodoItems, AddTodos } from "../reducers/todosSlice";
 import { Badge, Card, Col, Container, Row, Image } from "react-bootstrap";
-import { BsClock, BsCardChecklist, BsCalendar, BsPerson } from "react-icons/bs";
+import { BsClock, BsCardChecklist, BsCalendar, BsPerson, FaEdit } from "react-icons/bs";
 import "../../todos/styles/common.css";
 
 
@@ -55,7 +55,8 @@ function Dashboard(props){
     return (
         <Container fluid>
             <Row>
-                <Col md={8}>
+                <Col></Col>
+                <Col md={7}>
 
                     <Card>
                         <Card.Body className="profile-greeting">
@@ -85,7 +86,7 @@ function Dashboard(props){
                     </Card>
 
                 </Col>
-                <Col >
+                <Col md={3}>
 
                     <Card>
                         <Card.Body >
@@ -113,8 +114,8 @@ function Dashboard(props){
                         </Card.Body>
                     </Card>
 
-
                 </Col>
+                <Col></Col>
             </Row>
         </Container>
     )

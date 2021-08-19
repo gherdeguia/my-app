@@ -37,3 +37,10 @@
 .as-buttons.item-selected{
     display: inline-block;
 }
+
+.modal-content {
+    background-color: #ffc025 !important;
+}
+.modal-header {
+    background-color: #ffe085;
+}
