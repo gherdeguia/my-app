@@ -22,3 +22,18 @@
     background-color: #ffe085;
 }
 
+.as-buttons{
+    cursor: pointer;
+}
+.as-buttons:hover{
+    cursor: pointer;
+}
+
+
+.as-buttons.item-selected-true{
+    display: none;
+}
+
+.as-buttons.item-selected{
+    display: inline-block;
+}
