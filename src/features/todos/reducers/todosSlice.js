@@ -3,10 +3,7 @@ import { initialTodoList } from "../../../common/constants/constants";
 import {v4 as uuid} from "uuid";
 
 const todosAdapter = createEntityAdapter();
-const initialState = todosAdapter.getInitialState({
-    ids:[initialTodoList.id],
-    entities: {[initialTodoList.id]: initialTodoList}
-});
+const initialState = todosAdapter.getInitialState();
 
 const todosSlice = createSlice({
     name : "todos",
