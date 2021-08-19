@@ -50,4 +50,6 @@ export const selectDoneList = createSelector([selectAllTodos], (todos) => {
 
 export const selectDoneItems = createSelector([selectAllTodos], (todos) => todos.filter((todo) => todo.done));
 
+export const selectTodoItems = createSelector([selectAllTodos], (todos) => todos.filter((todo) => !todo.done));
+
 export default todosSlice.reducer;
