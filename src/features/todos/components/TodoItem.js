@@ -19,7 +19,7 @@ function TodoItem(props){
     const handleShow = () => setShow(true);
 
     function handleClick(){
-        updateTodoData(todo.id, {done: !todo.done}).then( (response) => {
+        updateTodoData(todo.id, {text: todo.text, done: !todo.done}).then( (response) => {
             dispatch(ToggleTodo({ props, updateTodoData: response.data} ));
         });
     }
@@ -37,9 +37,10 @@ function TodoItem(props){
 
     function handleUpdate(event){
         // console.log(todoText ? todoText : todo.text);
-        updateTodoData(todo.id,{ text: todoText ? todoText : todo.text }).then( (response) => {
+        updateTodoData(todo.id,{ text: todoText ? todoText : todo.text,  done: todo.done }).then( (response) => {
             dispatch(ToggleTodo({ props, updateTodoData: response.data} ));
         });
+        setShow(false);
     }
 
     return (
