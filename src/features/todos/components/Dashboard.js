@@ -26,7 +26,7 @@ function Dashboard(props){
         const timer = useNewTimer(new Date());
      
         return (
-             <span>{timer.toLocaleTimeString()}</span>
+             <span >{timer.toLocaleTimeString()}</span>
          );
      }
 
@@ -49,6 +49,7 @@ function Dashboard(props){
 
       const doneCount = useSelector(selectDoneList);
       const todoCount = useSelector(selectTodoItems);
+      const hasTodo = (todoCount.length > 0) ? "animate__animated animate__swing animate__infinite animate__slow" : "";
 
 
     return (
@@ -62,7 +63,7 @@ function Dashboard(props){
                             <Row>
 
                                 <h6 className="media">
-                                    <Badge bg="light" text="dark">
+                                    <Badge bg="light" text="dark" className="animate__animated animate__pulse animate__infinite animate__slow">
                                         <BsClock />&nbsp;{ Clock() }
                                     </Badge>
 
@@ -87,16 +88,16 @@ function Dashboard(props){
                 <Col >
 
                     <Card>
-                        <Card.Body>
+                        <Card.Body >
                             <Row>
-                                <h3>Hi! You have a Lot to do!</h3>
+                                <h3>To do or Not to do</h3>
                                 <hr/>
                             </Row>
                             <Row>
                                 
                                 <h6 className="media">
                                     <span className="count"><BsCalendar />&nbsp;To do&nbsp;</span>
-                                    <Badge pill>{doneCount.length}</Badge>
+                                    <Badge pill className={`${hasTodo}`}>{todoCount.length}</Badge>
                                 </h6>
                                 
                             </Row>
@@ -104,7 +105,7 @@ function Dashboard(props){
                             <Row>
                                 <h6 className="media">
                                     <span className="count"><BsCardChecklist />&nbsp;Done&nbsp;</span>
-                                    <Badge pill>{todoCount.length}</Badge>
+                                    <Badge pill className="">{doneCount.length}</Badge>
                                 </h6>
                             </Row>
                             

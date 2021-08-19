@@ -1,0 +1,41 @@
+.media {
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    font-size :xx-large;
+}
+
+.count {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    font-size :xx-large;
+}
+
+.profile-greeting {
+    background-image: url(../../../images/bg1.jpg);
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    border-radius: 5px;
+}
+
+.profile-image {
+    width: 30%;
+    margin: auto;
+    padding-top: 50px;
+    margin-bottom: 10px;
+}
+
+.quotable {
+    font-size: large;
+    color: antiquewhite;
+    margin:auto;
+    text-align: center;
+}
