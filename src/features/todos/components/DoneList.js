@@ -7,7 +7,7 @@ import { Container, Col, Row, Card } from "react-bootstrap";
 function TodoneList(){
 
     const doneIds = useSelector(selectDoneList);
-    console.log(doneIds);
+    //console.log(doneIds);
     return (
 
         <Container fluid className="App">
