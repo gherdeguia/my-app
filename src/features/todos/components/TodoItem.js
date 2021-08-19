@@ -13,6 +13,7 @@ function TodoItem(props){
     const dispatch = useDispatch();
 
     //modal part
+    const [todoText,setText] = useState(todo.text);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -29,10 +30,17 @@ function TodoItem(props){
         });
     }
 
+    function changeHandler(event){
+        setText(event.target.value);
+        // console.log(event.target.value);
+    }
+
     function handleUpdate(event){
-        updateTodoData(todo.id,todo).then( (response) => {
-            dispatch(ToggleTodo({ props, updateTodoData: response.data} ));
-        });
+        console.log(todoText ? todoText : todo.text);
+        
+        // updateTodoData(todo.id,todo).then( (response) => {
+        //     dispatch(ToggleTodo({ props, updateTodoData: response.data} ));
+        // });
     }
 
     return (
@@ -60,10 +68,10 @@ function TodoItem(props){
                 </Modal.Header>
                 <Modal.Body>
                     <p>THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG</p>
-                    <FormControl as="textarea" />
+                    <FormControl as="textarea" value={todoText} onChange={changeHandler}/>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button >Save</Button>
+                    <Button onClick={handleUpdate} value={todo.id}>Save</Button>
                     <Button onClick={handleClose}>Close</Button>
                 </Modal.Footer>
             </Modal>
